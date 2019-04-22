@@ -8,10 +8,6 @@
 
     position: relative;
 
-    &:before {
-        @include blurredBg();
-    }
-
     & > div {
         z-index: 100;
     }
@@ -40,10 +36,6 @@
         @include transparentBg();
         @include primaryFont();
 
-        &:before {
-            @include blurredBg();
-        }
-
         .number {
             z-index: 100;
         }
@@ -63,10 +55,6 @@
     align-items: center;
 
     position: relative;
-
-    &:before {
-        @include blurredBg();
-    }
 
     .text {
         z-index: 100;
