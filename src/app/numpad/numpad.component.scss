@@ -8,10 +8,6 @@
 	
 	display: flex;
 	flex-flow: row wrap;
-	
-	&:before {
-		@include blurredBg();
-	}
 }
 
 .button {
