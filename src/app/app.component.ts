@@ -203,8 +203,8 @@ export class AppComponent implements OnInit {
       }
 
       console.log(sequence[i]);
-      const currentSound = this.sounds[sequence[i]];
-      currentSound.play();
+      this.sounds[sequence[i]].play();
+
       i++;
       this.game.configs['stim-qty']--;
       this.game.input = '';
