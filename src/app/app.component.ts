@@ -142,6 +142,14 @@ export class AppComponent implements OnInit {
   // END PLAY, STOP & RESET
 
   // START GAME LOGICS
+  run() {
+    const loop = this.loopMaker(
+      this.sequence(),
+      this.game.configs
+    );
+    loop();
+  }
+
   sequence() {
     const quantity = +this.game.configs['stim-qty'];
 
@@ -161,18 +169,18 @@ export class AppComponent implements OnInit {
     let i = 0;
     const startTime = new Date().getTime();
 
-    return () => {
+    const loop = () => {
       if (i > nBack) {
         if (this.checkUserInput(sequence[i - 1] + sequence[i - nBack - 1])) {
           this.game.score++;
-          console.log('Correct.')
+          console.log('Correct.');
         } else {
-          console.log('WRONG!')
+          console.log('WRONG!');
         }
         console.log(
           'Your input:',
           this.game.input || null
-        )
+        );
         if (i + 1 > quantity) {
           const endTime = new Date().getTime();
 
@@ -195,23 +203,19 @@ export class AppComponent implements OnInit {
       }
 
       console.log(sequence[i]);
-      this.sounds[sequence[i]].play();
-
+      const currentSound = this.sounds[sequence[i]];
+      currentSound.play();
       i++;
       this.game.configs['stim-qty']--;
       this.game.input = '';
-    }
-  }
 
-  run() {
-    const looper = this.loopMaker(
-      this.sequence(),
-      this.game.configs
-    );
-    this.game.id = setInterval(
-      looper,
-      this.game.configs['stim-time']
-    );
+      this.game.id = setTimeout(
+        loop,
+        this.game.configs['stim-time']
+      );
+    };
+
+    return loop;
   }
 
   checkUserInput(value) {
