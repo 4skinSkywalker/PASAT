@@ -1,0 +1,45 @@
+@import "~styles/global/mixins/colors.scss";
+@import "~styles/global/mixins/fonts.scss";
+
+.numpad {
+	width: 280px;
+	height: 350px;
+	position: relative;
+	
+	display: flex;
+	flex-flow: row wrap;
+	
+	&:before {
+		@include blurredBg();
+	}
+}
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1 0 33.33333%;
+
+	z-index: 100;
+	margin-left: -1px;
+    margin-bottom: -1px;
+	
+	@include transparentBg();
+	@include secondaryFont();
+	
+	&:hover {
+        cursor: pointer;
+	}
+}
+
+.button.zero {
+    order: 3;
+}
+
+.button.go {
+    order: 2;
+}
+
+.button.del {
+    order: 3;
+}

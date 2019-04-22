@@ -1,0 +1,17 @@
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "~styles/global/mixins/colors.scss";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+app-root {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+
+	background: url($unsplash) fixed center;
+	background-size: cover;
+}

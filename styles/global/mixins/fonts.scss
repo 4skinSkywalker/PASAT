@@ -1,0 +1,9 @@
+@mixin primaryFont() {
+    font-size: 3em;
+    letter-spacing: 3px;
+}
+
+@mixin secondaryFont() {
+    font-size: 2em;
+    letter-spacing: 2px;
+}

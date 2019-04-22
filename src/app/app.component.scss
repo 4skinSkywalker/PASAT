@@ -1,0 +1,74 @@
+@import "~styles/global/mixins/colors.scss";
+@import "~styles/global/mixins/fonts.scss";
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+
+    &:before {
+        @include blurredBg();
+    }
+
+    & > div {
+        z-index: 100;
+    }
+
+    .ham-menu {
+        cursor: pointer;
+    }
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    align-items: center;
+
+    #primary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 2.25em;
+        width: 100%;
+        position: relative;
+
+        @include transparentBg();
+        @include primaryFont();
+
+        &:before {
+            @include blurredBg();
+        }
+
+        .number {
+            z-index: 100;
+        }
+    }
+}
+
+#header, #footer {
+    @include transparentBg();
+    @include secondaryFont();
+
+    padding: 20px;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    &:before {
+        @include blurredBg();
+    }
+
+    .text {
+        z-index: 100;
+    }
+}

@@ -1,0 +1,14 @@
+<div class="container">
+  <mat-list class="main">
+    <div *ngFor="let stat of stats">
+      <mat-list-item class="item">
+        {{ stat.label }} : {{ stat.value}} {{ stat.suffix || '' }}
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </div>
+  </mat-list>
+  <button 
+  mat-raised-button 
+  color="warn"
+  mat-dialog-close>Close</button>
+</div>
