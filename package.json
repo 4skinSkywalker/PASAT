@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:gh": "ng b --prod --base-href [https://4skinSkywalker.github.io/PASAT/] && ngh --dir=dist/PASAT --no-silent"
+    "gh:deploy": "ng b --prod --base-href https://4skinSkywalker.github.io/PASAT/ && ngh --dir=dist/PASAT --no-silent"
   },
   "private": true,
   "dependencies": {

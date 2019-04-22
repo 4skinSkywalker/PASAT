@@ -178,8 +178,8 @@ export class AppComponent implements OnInit {
 
           this.game.stats['time-played'] +=
             endTime - startTime;
-          this.game.stats.right += this.game.score;
-          this.game.stats.wrong +=
+          this.game.stats['right'] += this.game.score;
+          this.game.stats['wrong'] +=
             quantity - nBack - this.game.score;
           this.game.stats['n-games'].push(nBack);
           this.statsService.save(this.game.stats);
