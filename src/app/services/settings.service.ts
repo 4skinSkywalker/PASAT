@@ -23,7 +23,7 @@ export class SettingsService {
     },
     'n-back': {
       label: 'N-back',
-      min: 1,
+      min: 2,
       max: 10,
       step: 1,
       value: 2

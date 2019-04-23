@@ -170,17 +170,21 @@ export class AppComponent implements OnInit {
     const startTime = new Date().getTime();
 
     const loop = () => {
-      if (i > nBack) {
-        if (this.checkUserInput(sequence[i - 1] + sequence[i - nBack - 1])) {
+      if (i >= nBack) {
+        const chunk = sequence
+          .slice(i - nBack, i);
+        const correctResult = chunk
+          .reduce((a, b) => a + b);
+        if (this.checkUserInput(correctResult)) {
           this.game.score++;
           console.log('Correct.');
         } else {
           console.log('WRONG!');
         }
-        console.log(
-          'Your input:',
-          this.game.input || null
-        );
+        console.log('User input     :',
+          this.game.input || null);
+        console.log('Correct result :',
+          chunk.join('+'), '=', correctResult);
         if (i + 1 > quantity) {
           const endTime = new Date().getTime();
 
@@ -202,7 +206,6 @@ export class AppComponent implements OnInit {
         }
       }
 
-      console.log(sequence[i]);
       this.sounds[sequence[i]].play();
 
       i++;
