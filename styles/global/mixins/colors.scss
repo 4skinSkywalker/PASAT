@@ -1,7 +1,6 @@
 $unsplash: "https://source.unsplash.com/random";
 
 @mixin transparentBg() {
-	border: 1px solid rgba(0, 0, 0, 0.66666);
 	background-color: rgba(0, 0, 0, 0.66666);
 	color: white;
 	user-select: none;

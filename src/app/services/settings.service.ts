@@ -16,10 +16,10 @@ export class SettingsService {
     },
     'stim-time': {
       label: 'Stimulus duration',
-      min: 10,
-      max: 3000,
+      min: 2000,
+      max: 4000,
       step: 250,
-      value: 2500
+      value: 3000
     },
     'n-back': {
       label: 'N-back',

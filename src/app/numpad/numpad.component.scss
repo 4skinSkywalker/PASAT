@@ -1,6 +1,9 @@
 @import "~styles/global/mixins/colors.scss";
 @import "~styles/global/mixins/fonts.scss";
 
+$rounded-1: 4%;
+$rounded-2: 40%;
+
 .numpad {
 	width: 280px;
 	height: 350px;
@@ -26,6 +29,22 @@
 	&:hover {
         cursor: pointer;
 	}
+}
+
+.button:nth-of-type(1) {
+	border-top-left-radius: $rounded-2;
+}
+
+.button:nth-of-type(3) {
+	border-top-right-radius: $rounded-1;
+}
+
+.button:nth-of-type(11) {
+	border-bottom-left-radius: $rounded-1;
+}
+
+.button:nth-of-type(12) {
+	border-bottom-right-radius: $rounded-2;
 }
 
 .button.zero {

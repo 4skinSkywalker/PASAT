@@ -111,7 +111,7 @@ export class AppComponent implements OnInit {
     this.endgameDialog
       .open(EndgameComponent, {
         width: '320px',
-        height: '320px',
+        height: '240px',
         data: { total, right, wrong: total - right }
       });
   }
