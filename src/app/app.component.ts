@@ -119,16 +119,12 @@ export class AppComponent implements OnInit {
 
   // START PLAY, STOP & RESET
   play() {
-    console.log('Play');
-
     this.reset();
     this.run();
     this.game.running = true;
   }
 
   stop() {
-    console.log('Stop');
-
     this.reset();
     this.game.running = false;
   }
@@ -177,9 +173,6 @@ export class AppComponent implements OnInit {
           .reduce((a, b) => a + b);
         if (this.checkUserInput(correctResult)) {
           this.game.score++;
-          console.log('Correct.');
-        } else {
-          console.log('WRONG!');
         }
         console.log('User input     :',
           this.game.input || null);
@@ -192,21 +185,23 @@ export class AppComponent implements OnInit {
             endTime - startTime;
           this.game.stats['right'] += this.game.score;
           this.game.stats['wrong'] +=
-            quantity - nBack - this.game.score;
+            quantity - (nBack - 1) - this.game.score;
           this.game.stats['n-games'].push(nBack);
           this.statsService.save(this.game.stats);
 
           this.openEndgame(
-            quantity - nBack - 1,
+            quantity - (nBack - 1),
             this.game.score
           );
 
-          console.log('Score:', this.game.score);
+          console.log('Score          :',
+            this.game.score);
           return this.stop();
         }
       }
 
       this.sounds[sequence[i]].play();
+      console.log('Current item   :', sequence[i]);
 
       i++;
       this.game.configs['stim-qty']--;

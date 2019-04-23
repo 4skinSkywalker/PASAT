@@ -9,17 +9,17 @@ export class SettingsService {
   slidersObject = {
     'stim-qty': {
       label: 'Number of stimuli',
-      min: 25,
+      min: 10,
       max: 100,
-      step: 5,
+      step: 10,
       value: 30
     },
     'stim-time': {
       label: 'Stimulus duration',
-      min: 2000,
-      max: 4000,
-      step: 250,
-      value: 3000
+      min: 3000,
+      max: 10000,
+      step: 500,
+      value: 3500
     },
     'n-back': {
       label: 'N-back',
