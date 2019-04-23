@@ -184,7 +184,7 @@ export class AppComponent implements OnInit {
         console.log('User input     :',
           this.game.input || null);
         console.log('Correct result :',
-          chunk.join('+'), '=', correctResult);
+          chunk.join(' + '), '=', correctResult);
         if (i + 1 > quantity) {
           const endTime = new Date().getTime();
 
@@ -197,7 +197,7 @@ export class AppComponent implements OnInit {
           this.statsService.save(this.game.stats);
 
           this.openEndgame(
-            quantity - nBack,
+            quantity - nBack - 1,
             this.game.score
           );
 
