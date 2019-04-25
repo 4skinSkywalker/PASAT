@@ -13,6 +13,7 @@ import { Howl } from 'howler';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  feedback = '';
 
   // GAME STATE
   game = {
@@ -66,8 +67,7 @@ export class AppComponent implements OnInit {
   }
 
   removeChar() {
-    this.game.input =
-      this.game.input.substr(0, this.game.input.length - 1);
+    this.game.input = '';
   }
 
   numpadHandler(e) {
@@ -159,6 +159,11 @@ export class AppComponent implements OnInit {
     return sequence;
   }
 
+  setFeedback(boolean) {
+    this.feedback = boolean ? 'green' : 'red';
+    setTimeout(() => this.feedback = '', 400);
+  }
+
   loopMaker(sequence, configs) {
     const quantity = +configs['stim-qty'];
     const nBack = +configs['n-back'];
@@ -173,6 +178,9 @@ export class AppComponent implements OnInit {
           .reduce((a, b) => a + b);
         if (this.checkUserInput(correctResult)) {
           this.game.score++;
+          this.setFeedback(true);
+        } else {
+          this.setFeedback(false);
         }
         console.log('User input     :',
           this.game.input || null);

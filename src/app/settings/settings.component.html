@@ -3,7 +3,7 @@
     <div class="sliders"
     *ngFor="let slider of sliders">
       <label [for]="slider.id">
-        {{ slider.label }}: {{ slider.value }}
+        {{ slider.label }}: {{ slider.value }} {{ slider.suffix || ''}}
       </label>
       <mat-slider
       [min]="slider.min"

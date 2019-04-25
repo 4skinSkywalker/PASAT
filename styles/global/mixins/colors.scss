@@ -1,8 +1,26 @@
 $unsplash: "https://source.unsplash.com/random";
+$opacity: 0.66666;
+
+@mixin feedbackTrans() {
+	transition: outline 200ms ease-in-out;
+}
 
 @mixin transparentBg() {
-	background-color: rgba(0, 0, 0, 0.66666);
+	background-color: rgba(0, 0, 0, $opacity);
 	color: white;
 	user-select: none;
 	box-shadow: 0 19px 38px rgba(0,0,0,.3), 0 15px 12px rgba(0,0,0,.22);
+	
+	outline: 2px solid transparent;
+	@include feedbackTrans();
+}
+
+.greenOl {
+	outline: 2px solid rgba(50, 205, 50, $opacity) !important;
+    @include feedbackTrans();
+}
+
+.redOl {
+	outline: 2px solid rgba(220, 20, 60, $opacity) !important;
+    @include feedbackTrans();
 }
