@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     private statsDialog: MatDialog,
     private endgameDialog: MatDialog,
     private settingsService: SettingsService,
-    private game: GameService
+    public game: GameService
   ) { }
 
   ngOnInit() {
