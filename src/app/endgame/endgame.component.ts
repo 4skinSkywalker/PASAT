@@ -12,8 +12,8 @@ export class EndgameComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any
   ) {
-    const { total, right } = data
-    this.percentage = 100 * right / total | 0;
+    const { total, score } = data;
+    this.percentage = Math.floor(100 * score / total);
   }
 
   ngOnInit() {

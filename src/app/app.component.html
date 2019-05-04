@@ -23,11 +23,11 @@
     'greenOl': feedback === 'green',
     'redOl': feedback === 'red'
   }">
-    <div class="number">{{ game.input }}</div>
+    <div class="number">{{ game.state.input }}</div>
   </div>
   <app-numpad
   (numpadEvent)="numpadHandler($event)"
-  [running]="game.running"></app-numpad>
+  [running]="game.state.running"></app-numpad>
 </main>
 
 <footer id="footer">
